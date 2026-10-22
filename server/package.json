@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node dist/main.js",
+    "start:dev": "nest start --watch",
+    "build": "nest build"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^5.0.3",
+    "@nestjs/common": "^12.1.3",
+    "@nestjs/core": "^12.1.3",
+    "@nestjs/mongoose": "^12.0.0",
+    "@nestjs/platform-express": "^12.1.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "dotenv": "^16.4.7",
+    "mongoose": "^8.9.5",
+    "nodemailer": "^10.1.2",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.14",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/nodemailer": "^6.4.17",
+    "typescript": "^5.7.2"
+  }
+}
