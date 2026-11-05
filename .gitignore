@@ -1,8 +1,26 @@
+
+# Dependencies
 node_modules/
 **/node_modules/
+
+# Build output
 client/dist/
 server/dist/
-server/.env
+dist/
+
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
+server/.env
+atlas-credentials.env
+
+# Logs
 *.log
+
+# TypeScript
 *.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
