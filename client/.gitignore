@@ -1,0 +1,96 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+*.env
+
+# Secrets
+atlas-credentials.env
+*.pem
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+
+# Uploads
+uploads/
+
+
+
+
+
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+client/dist/
+server/dist/
+dist/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.env
+atlas-credentials.env
+
+# Logs
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local tooling / extra secrets
+*.local
+.claude/
+*.pem
+
+# Uploads and coverage
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.env
+atlas-credentials.env
+
+# Logs
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local tooling
+*.local
+.claude/
+*.pem
+
+# Uploads and coverage
+uploads/
+coverage/
+
+server/uploads/
+coverage/
