@@ -25,6 +25,15 @@ export class Project {
 
   @Prop({ trim: true, default: '' })
   liveUrl!: string;
+
+  @Prop({ trim: true, default: '' })
+  imageUrl!: string;
+
+  @Prop({ trim: true, default: '' })
+  imagePublicId!: string;
+
+  @Prop({ default: 0 })
+  order!: number;
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);

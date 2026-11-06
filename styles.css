@@ -1605,3 +1605,20 @@ footer {
     }
 }
 >>>>>>> 226b46dab22d38e01d67b1c584fb8a4bb068ac8b
+=======
+
+/* ---- Dynamic portfolio additions ---- */
+.hero-avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-color); margin-bottom: 1.25rem; box-shadow: 0 0 30px rgba(88, 166, 255, 0.25); }
+.project-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px 12px 0 0; display: block; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.service-card { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.service-icon { font-size: 1.6rem; color: var(--primary-color); }
+.service-card h3 { font-size: 1.15rem; margin: 0; }
+.service-card p { color: var(--text-secondary); margin: 0; }
+.service-price { align-self: flex-start; margin-top: auto; padding: 0.15rem 0.75rem; border-radius: 999px; font-size: 0.8rem; background: rgba(88, 166, 255, 0.15); color: var(--primary-color); }
+.timeline-subtitle { display: block; color: var(--text-secondary); font-size: 0.95rem; }
+.admin-preview { display: block; max-width: 220px; max-height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 0.5rem; border: 1px solid var(--surface-border); }
+.admin-tabs .nav-link { color: var(--text-secondary); border: 1px solid var(--surface-border); }
+.admin-tabs .nav-link.active { background: var(--gradient); color: #fff; border-color: transparent; }
+.admin-form .text-muted, .admin-card .text-muted { color: var(--text-secondary) !important; }
+>>>>>>> Stashed changes

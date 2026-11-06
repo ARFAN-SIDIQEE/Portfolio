@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateProjectDto, UpdateProjectDto } from './dto/project.dto';
 import { CreateSkillDto, UpdateSkillDto } from './dto/skill.dto';
+import { CloudinaryService } from '../cloudinary/cloudinary.service';
 import { Project } from './schemas/project.schema';
 import { Skill } from './schemas/skill.schema';
 
@@ -11,10 +12,11 @@ export class PortfolioService {
   constructor(
     @InjectModel(Project.name) private readonly projects: Model<Project>,
     @InjectModel(Skill.name) private readonly skills: Model<Skill>,
+    private readonly cloudinary: CloudinaryService,
   ) {}
 
   getProjects() {
-    return this.projects.find().sort({ createdAt: -1 }).lean().exec();
+    return this.projects.find().sort({ order: 1, createdAt: -1 }).lean().exec();
   }
 
   createProject(data: CreateProjectDto) {
@@ -22,9 +24,20 @@ export class PortfolioService {
   }
 
   async updateProject(id: string, data: UpdateProjectDto) {
-    const project = await this.projects.findByIdAndUpdate(id, data, { new: true, runValidators: true }).exec();
-    if (!project) throw new NotFoundException('Project not found.');
+    const existing = await this.projects.findById(id).exec();
+    if (!existing) throw new NotFoundException('Project not found.');
+    const oldImage = existing.imagePublicId;
+    existing.set(data);
+    const project = await existing.save();
+    if (oldImage && oldImage !== project.imagePublicId) await this.cloudinary.deleteImage(oldImage);
     return project;
+  }
+
+  async deleteProject(id: string) {
+    const project = await this.projects.findByIdAndDelete(id).exec();
+    if (!project) throw new NotFoundException('Project not found.');
+    await this.cloudinary.deleteImage(project.imagePublicId);
+    return { deleted: true };
   }
 
   getSkills() {

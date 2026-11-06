@@ -12,7 +12,7 @@ dist/
 .env
 .env.*
 !.env.example
-server/.env
+*.env
 atlas-credentials.env
 
 # Logs
@@ -24,3 +24,12 @@ atlas-credentials.env
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local tooling / extra secrets
+*.local
+.claude/
+*.pem
+
+# Uploads and coverage
+server/uploads/
+coverage/

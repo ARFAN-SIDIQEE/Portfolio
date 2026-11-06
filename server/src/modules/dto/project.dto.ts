@@ -1,5 +1,4 @@
-import { Transform } from 'class-transformer';
-import { IsArray, IsIn, IsOptional, IsString, IsUrl, MaxLength } from 'class-validator';
+import { IsArray, IsIn, IsInt, IsOptional, IsString, IsUrl, MaxLength, ValidateIf } from 'class-validator';
 
 export class CreateProjectDto {
   @IsString() @MaxLength(120)
@@ -17,13 +16,20 @@ export class CreateProjectDto {
   @IsOptional() @IsString() @MaxLength(80)
   category?: string;
 
-  @Transform(({ value }) => value === '' ? undefined : value)
-  @IsOptional() @IsUrl({ require_protocol: true })
+  @IsOptional() @ValidateIf((_o, value) => value !== '' && value !== undefined) @IsUrl({ require_protocol: true })
   sourceUrl?: string;
 
-  @Transform(({ value }) => value === '' ? undefined : value)
-  @IsOptional() @IsUrl({ require_protocol: true })
+  @IsOptional() @ValidateIf((_o, value) => value !== '' && value !== undefined) @IsUrl({ require_protocol: true })
   liveUrl?: string;
+
+  @IsOptional() @ValidateIf((_o, value) => value !== '' && value !== undefined) @IsUrl({ require_protocol: true })
+  imageUrl?: string;
+
+  @IsOptional() @IsString() @MaxLength(200)
+  imagePublicId?: string;
+
+  @IsOptional() @IsInt()
+  order?: number;
 }
 
 export class UpdateProjectDto {
@@ -42,11 +48,18 @@ export class UpdateProjectDto {
   @IsOptional() @IsString() @MaxLength(80)
   category?: string;
 
-  @Transform(({ value }) => value === '' ? undefined : value)
-  @IsOptional() @IsUrl({ require_protocol: true })
+  @IsOptional() @ValidateIf((_o, value) => value !== '' && value !== undefined) @IsUrl({ require_protocol: true })
   sourceUrl?: string;
 
-  @Transform(({ value }) => value === '' ? undefined : value)
-  @IsOptional() @IsUrl({ require_protocol: true })
+  @IsOptional() @ValidateIf((_o, value) => value !== '' && value !== undefined) @IsUrl({ require_protocol: true })
   liveUrl?: string;
+
+  @IsOptional() @ValidateIf((_o, value) => value !== '' && value !== undefined) @IsUrl({ require_protocol: true })
+  imageUrl?: string;
+
+  @IsOptional() @IsString() @MaxLength(200)
+  imagePublicId?: string;
+
+  @IsOptional() @IsInt()
+  order?: number;
 }
