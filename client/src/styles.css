@@ -1604,9 +1604,6 @@ footer {
         flex-direction: column;
     }
 }
->>>>>>> 226b46dab22d38e01d67b1c584fb8a4bb068ac8b
-=======
-
 /* ---- Dynamic portfolio additions ---- */
 .hero-avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-color); margin-bottom: 1.25rem; box-shadow: 0 0 30px rgba(88, 166, 255, 0.25); }
 .project-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px 12px 0 0; display: block; }
@@ -1621,4 +1618,3 @@ footer {
 .admin-tabs .nav-link { color: var(--text-secondary); border: 1px solid var(--surface-border); }
 .admin-tabs .nav-link.active { background: var(--gradient); color: #fff; border-color: transparent; }
 .admin-form .text-muted, .admin-card .text-muted { color: var(--text-secondary) !important; }
->>>>>>> Stashed changes
